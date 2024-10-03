@@ -3,19 +3,19 @@ import { NavigationMixin } from 'lightning/navigation';
 
 export default class UniversityList extends NavigationMixin(LightningElement) {
     @track collegeData = [
-        { id: 1, serial: '01', name: 'KJC Tech College', programs: '15', students: '100', mentors: '15' , componentName: 'c__studentTable' },
-        { id: 2, serial: '02', name: 'KJC Tech College', programs: '9', students: '500', mentors: '9'  , componentName: 'c__studentTable'},
-        { id: 3, serial: '03', name: 'KJC Tech College', programs: '10', students: '800', mentors: '10' , componentName: 'c__studentTable' },
-        { id: 4, serial: '04', name: 'KJC Tech College', programs: '12', students: '50', mentors: '12' , componentName: 'c__studentTable' },
-        { id: 5, serial: '05', name: 'KJC Tech College', programs: '11', students: '500', mentors: '11' , componentName: 'c__studentTable'},
-        { id: 6, serial: '06', name: 'KJC Tech College', programs: '6', students: '400', mentors: '6'  , componentName: 'c__studentTable'},
-        { id: 7, serial: '07', name: 'KJC Tech College', programs: '12', students: '50', mentors: '12'  , componentName: 'c__studentTable'},
-        { id: 8, serial: '08', name: 'SJC Tech College', programs: '12', students: '50', mentors: '12' , componentName: 'c__studentTable' },
+        { id: 1, serial: '01', name: 'KJC Tech College', programs: '15', students: '100', mentors: '15' },
+        { id: 2, serial: '02', name: 'KJC Tech College', programs: '9', students: '500', mentors: '9'   },
+        { id: 3, serial: '03', name: 'KJC Tech College', programs: '10', students: '800', mentors: '10' },
+        { id: 4, serial: '04', name: 'KJC Tech College', programs: '12', students: '50', mentors: '12'  },
+        { id: 5, serial: '05', name: 'KJC Tech College', programs: '11', students: '500', mentors: '11'},
+        { id: 6, serial: '06', name: 'KJC Tech College', programs: '6', students: '400', mentors: '6'  },
+        { id: 7, serial: '07', name: 'KJC Tech College', programs: '12', students: '50', mentors: '12' },
+        { id: 8, serial: '08', name: 'SJC Tech College', programs: '12', students: '50', mentors: '12' },
         // Add more static rows as needed
     ];
 
     @track currentPage = 1;
-    @track itemsPerPage = 6;  // Set items per page to 6
+    @track itemsPerPage = 5;  // Set items per page to 6
     @track searchTerm = '';
 
     
@@ -60,5 +60,17 @@ export default class UniversityList extends NavigationMixin(LightningElement) {
             this.currentPage--;
         }
     }
-    
+    handleClick(event) {
+        const universityName = event.target.dataset.name;
+
+        this[NavigationMixin.GenerateUrl]({
+            type: 'comm__namedPage',
+            attributes: {
+                name: 'examplepage__c'
+            }
+            
+        }).then(url => {
+            window.open(url, '_blank');
+        });
+    }
 }

@@ -203,5 +203,31 @@ export default class SJTStudentSearch extends NavigationMixin(LightningElement) 
             return 'pagination-ellipsis';
         }
         return page === this.currentPage ? 'pagination-item active' : 'pagination-item';
+ 
+    }
+    handleGoBack(event) {
+        
+        console.log('Go Back clicked');
+        
+        this[NavigationMixin.GenerateUrl]({
+            type: 'comm__namedPage',
+            attributes: {
+                name: 'AkhilTestPage__c'
+            }
+            
+        }).then(url => {
+            window.open(url, '_blank');
+        });
+    }
+    handleStudentClick(event){
+        this[NavigationMixin.GenerateUrl]({
+            type: 'comm__namedPage',
+            attributes: {
+                name: 'Dashboard__c'
+            }
+            
+        }).then(url => {
+            window.open(url, '_blank');
+        });
     }
 }

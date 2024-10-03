@@ -108,43 +108,21 @@
         </div>
 
         <!-- Pagination -->
-        <!-- <div class="pagination-wrapper">
-            <lightning-button label="Previous" variant="neutral" onclick={handlePrevious} disabled={isFirstPage}></lightning-button>
-            <span>Page {currentPage}</span>
-            <lightning-button label="Next" variant="neutral" onclick={handleNext} disabled={isLastPage}></lightning-button>
-        </div> 
-        <div class="slds-grid pagination-wrapper" style="justify-content: space-between; padding-top: 15px;">
-            <div class="slds-col slds-size_1-of-3">
-                <span>Page {currentPage}</span>
-            </div>
-            <div class="slds-col slds-size_1-of-3 pagination-controls" style="text-align: right;">
-                <lightning-button-icon icon-name="utility:chevronleft" alternative-text="Previous" variant="bare" onclick={handlePrevious} disabled={isFirstPage}></lightning-button-icon>
-                <span>{currentPage}</span>
-                <lightning-button-icon icon-name="utility:chevronright" alternative-text="Next" variant="bare" onclick={handleNext} disabled={isLastPage}></lightning-button-icon>
-            </div>
-        </div> -->
     <div class="pagination-wrapper">
-    <!-- Page number on the left -->
     <div class="slds-col slds-size_1-of-3">
         <span>Page {currentPage}</span>
     </div>
-
-    <!-- Chevron buttons and page numbers on the right -->
     <div class="slds-col slds-size_1-of-3 pagination-controls" style="text-align: right;">
-        <!-- Chevron Left Button -->
         <lightning-button-icon icon-name="utility:chevronleft" alternative-text="Previous" variant="bare" onclick={handlePreviousPage} disabled={isFirstPage}></lightning-button-icon>
-
-        <!-- Pagination numbers with ellipsis -->
         <template for:each={pageList} for:item="page">
             <span key={page} class="pagination-item" data-page={page} onclick={handlePageClick}>
                 {page}
             </span>
         </template>
-
-        <!-- Chevron Right Button -->
         <lightning-button-icon icon-name="utility:chevronright" alternative-text="Next" variant="bare" onclick={handleNextPage} disabled={isLastPage}></lightning-button-icon>
     </div>
 </div>
+
 
         
     </div>

@@ -1,0 +1,8 @@
+.pagination-item {
+    margin: 0 5px; /* Add some space between the page numbers */
+    cursor: pointer;
+}
+
+.pagination-item:hover {
+    text-decoration: underline;
+}
